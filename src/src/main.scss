@@ -6,6 +6,10 @@ body{
     background: $body-color;
 }
 
+.container {
+    overflow: hidden;
+    height: 100vh;
+}
 .flip-container {
     width: 98vw;
     margin: auto;
@@ -15,7 +19,6 @@ body{
             width: 100%;  
         }
     }
-
 }
 
 // sub saciton heading and visit us area

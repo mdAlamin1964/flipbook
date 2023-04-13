@@ -8,6 +8,11 @@ body {
   background: #b1fbe3;
 }
 
+.container {
+  overflow: hidden;
+  height: 100vh;
+}
+
 .flip-container {
   width: 98vw;
   margin: auto;

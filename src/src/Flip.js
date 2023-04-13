@@ -30,6 +30,9 @@ export default function FlipDemo() {
                 size={"stretch"}
                 maxShadowOpacity={1}
                 ref={book}
+                mobileScrollSupport={true}
+                minWidth={300}
+                minHeight={400}
                 >
                 {pagesToDisplay}
             </HTMLFlipBook>
