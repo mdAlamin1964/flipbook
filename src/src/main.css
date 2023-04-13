@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #b1fbe3;
+}
+
+.flip-container {
+  width: 98vw;
+  margin: auto;
+}
+.flip-container .flip-page img {
+  width: 100%;
+}
+
+.heading {
+  text-transform: uppercase;
+  font-family: "roboto";
+  color: #ff489a;
+  margin: 30px 0;
+  text-align: center;
+  text-shadow: 1px 3px 6px rgba(0, 0, 0, 0.28);
+}
+.heading h1 {
+  font-weight: 700;
+  display: inline-block;
+  border-bottom: 2px solid #ff489a;
+  padding: 0 40px;
+  padding-bottom: 10px;
+}
+.heading a {
+  color: #ff489a;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.4s;
+}
+.heading a:hover {
+  color: #2d3f39;
+}
+
+.flip-btn-area {
+  text-align: center;
+  margin: 30px 0;
+}
+.flip-btn-area button {
+  width: 120px;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  margin: 0 5px;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "roboto";
+  text-transform: uppercase;
+  transition: 0.4s;
+  box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.28);
+  -webkit-box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.28);
+  -moz-box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.28);
+  color: #ff489a;
+}
+.flip-btn-area button:hover {
+  background: #ff489a;
+  color: #b1fbe3;
+}
+
+@media (max-width: 768px) {
+  .flip-btn-area button {
+    width: 80px;
+    font-size: 14px;
+    padding: 7px;
+  }
+}/*# sourceMappingURL=main.css.map */

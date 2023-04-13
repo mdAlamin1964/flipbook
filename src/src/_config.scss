@@ -1,0 +1,27 @@
+$body-color: #b1fbe3;
+$heading-color: #ff489a;
+$hover-color: #2d3f39;
+
+$mobile-width: 768px;
+@mixin add-page-shadow {
+    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.28);
+-webkit-box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.28);
+-moz-box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.28);
+}
+
+
+@mixin text-shadow {
+    text-shadow: 1px 3px 6px rgba(0,0,0,0.28);
+}
+
+
+@mixin site-trasition {
+    transition:  0.4s;
+}
+
+
+@mixin tab-mobile {
+    @media (max-width: #{$mobile-width}){
+        @content;
+    }
+}

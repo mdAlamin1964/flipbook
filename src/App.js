@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import "./src/main.css"
+import Flip from './src/Flip'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default function App(props) {
+    return (
+        <div className="container">
+            <div className="heading">
+                <h1>Product Catalogue</h1>
+            </div>
+            <Flip />
+            <div className="website heading">
+                <a href="https://www.copperandcocoa.com.au" target="_blank" rel="noreferrer">Visit us</a>
+            </div>
+        </div>
+    )
 }
-
-export default App;
