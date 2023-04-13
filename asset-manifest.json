@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/flipbook/static/css/main.43002b64.css",
-    "main.js": "/flipbook/static/js/main.75ad3e3b.js",
+    "main.js": "/flipbook/static/js/main.0e994693.js",
     "index.html": "/flipbook/index.html",
     "main.43002b64.css.map": "/flipbook/static/css/main.43002b64.css.map",
-    "main.75ad3e3b.js.map": "/flipbook/static/js/main.75ad3e3b.js.map"
+    "main.0e994693.js.map": "/flipbook/static/js/main.0e994693.js.map"
   },
   "entrypoints": [
     "static/css/main.43002b64.css",
-    "static/js/main.75ad3e3b.js"
+    "static/js/main.0e994693.js"
   ]
 }
