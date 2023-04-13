@@ -13,7 +13,7 @@ export default function FlipDemo() {
 
     const pagesToDisplay =  flipPages.map(n=> (
         <div className="flip-page" key={nanoid()}>
-            <img src={`/assets/${n}`} alt={n} />
+            <img src={`https://mdalamin1964.github.io/flipbook/assets/${n}`} alt={n} />
         </div>
     ))
 
