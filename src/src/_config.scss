@@ -1,8 +1,12 @@
-$body-color: #b1fbe3;
+$body-color: #f5f5f5;
 $heading-color: #ff489a;
 $hover-color: #2d3f39;
+$pimary-green: #b1fbe3;
 
 $mobile-width: 768px;
+$laptop-width: 1080px;
+
+
 @mixin add-page-shadow {
     box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.28);
 -webkit-box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.28);
@@ -22,6 +26,13 @@ $mobile-width: 768px;
 
 @mixin tab-mobile {
     @media (max-width: #{$mobile-width}){
+        @content;
+    }
+}
+
+
+@mixin below-laptop {
+    @media (max-width: #{$laptop-width}){
         @content;
     }
 }

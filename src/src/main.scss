@@ -8,10 +8,13 @@ body{
 
 .container {
     overflow: hidden;
-    height: 100vh;
+    //height: 100vh;
 }
+
+
+
 .flip-container {
-    width: 98vw;
+    width: 1080px;
     margin: auto;
 
         .flip-page{
@@ -21,17 +24,20 @@ body{
     }
 }
 
+
+
 // sub saciton heading and visit us area
 .heading {
     text-transform: uppercase;
     font-family: 'roboto';
     color: $heading-color;
-    margin: 30px 0;
+    margin: 10px 0;
     text-align: center;
     @include text-shadow;
 
 
         h1 {
+            font-size: 20px;
             font-weight: 700;
             display: inline-block;
             border-bottom: 2px solid $heading-color;
@@ -69,10 +75,11 @@ body{
         text-transform: uppercase;
         @include site-trasition;
         @include add-page-shadow;
-        color: $heading-color;
+        color: $pimary-green;
+        background-color: $hover-color;
         &:hover {
-            background: $heading-color;
             color: $body-color;
+            background: rgb(0, 0, 0);
         }
     }
 }
@@ -84,5 +91,13 @@ body{
         width: 80px;
         font-size: 14px;
         padding: 7px;
+    }
+}
+
+
+// laptop
+@include below-laptop {
+    .flip-container {
+        width: 95%;
     }
 }

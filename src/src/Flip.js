@@ -3,7 +3,7 @@ import { useRef } from "react";
 import HTMLFlipBook from "react-pageflip"
 import { nanoid } from "nanoid";
 
-export default function FlipDemo() {
+export default function FlipDemo(props) {
 
     //Getting images
     const flipPages = []
@@ -20,19 +20,21 @@ export default function FlipDemo() {
     // next prev function
     const book = useRef()
 
+    
+    const pageWidth = 1080;
+
     return (
         <main className="flip-container">
             <HTMLFlipBook 
-                width={700} 
-                height={495} 
+                width={pageWidth} 
+                height={764} 
                 drawShadow={true}
-                showCover={true}
+                showCover={false}
                 size={"stretch"}
                 maxShadowOpacity={1}
                 ref={book}
                 mobileScrollSupport={true}
-                minWidth={300}
-                minHeight={400}
+                minWidth={window.innerWidth <= pageWidth? window.innerWidth -100 : pageWidth}
                 >
                 {pagesToDisplay}
             </HTMLFlipBook>
