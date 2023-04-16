@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import HTMLFlipBook from "react-pageflip"
 import { nanoid } from "nanoid";
 
@@ -67,6 +67,21 @@ export default function FlipDemo() {
 
     window.addEventListener("resize", checkOrientation, false);
     window.addEventListener("orientationchange", checkOrientation, false);
+
+    
+    // resizing window on reaload
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+    const [windowHeight, setWindowHeight] = useState(window.innerHeight)
+    const setWindowDimensions = () => {
+    setWindowWidth(window.innerWidth)
+    setWindowHeight(window.innerHeight)
+    }
+    useEffect(() => {
+        window.addEventListener('resize', setWindowDimensions);
+    return () => {
+        window.removeEventListener('resize', setWindowDimensions)
+    }
+    }, [])
 
 
     // style 
