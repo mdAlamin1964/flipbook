@@ -3,7 +3,7 @@ import { useRef } from "react";
 import HTMLFlipBook from "react-pageflip"
 import { nanoid } from "nanoid";
 
-export default function FlipDemo(props) {
+export default function FlipDemo() {
 
     //Getting images
     const flipPages = []
@@ -17,14 +17,19 @@ export default function FlipDemo(props) {
         </div>
     ))
 
+
+
     // next prev function
     const book = useRef()
 
 
+
     // Rotate screen
     let pageWidth =  0;
-    if(window.innerWidth > 1080 && window.innerHeight > 900) {
+    if(window.innerWidth > 1080 && window.innerHeight > 900 && window.innerWidth <= 1920) {
         pageWidth = 1080;
+    } else if(window.innerWidth > 1920) {
+        pageWidth = window.innerWidth * 0.8;
     } else if(window.innerWidth > 1080 && window.innerHeight < 900) {
         pageWidth = 950;
     } else {
@@ -33,9 +38,17 @@ export default function FlipDemo(props) {
     
     let pageHight = Math.floor(pageWidth * 0.71);
     let mobileModeCondition = false;
+    let mobileScreen = false;
     let buttonclass = ""
     let pageWidthStyle =  0;
-    if(window.innerWidth < 900 && window.innerHeight < 400) {
+
+    // Trigaring massage
+    if(window.innerHeight > window.innerWidth) {
+        mobileScreen =  true
+    }
+
+        // window.innerWidth < 900 && window.innerHeight < 400
+    if(window.innerWidth < 1080 && window.innerHeight < 400) {
         pageHight = window.innerHeight;
         pageWidth = Math.floor(pageHight * 1.41)
         pageWidthStyle = pageWidth
@@ -43,7 +56,7 @@ export default function FlipDemo(props) {
         buttonclass = "flip-btn-mobile"
     }
 
-
+    
 
     // detacting screen orientation
     var previousOrientation = window.orientation;
@@ -60,24 +73,31 @@ export default function FlipDemo(props) {
     window.addEventListener("orientationchange", checkOrientation, false);
 
 
-
-
     // style 
     let stylesFilpContainer = {
-        width: pageWidth >= 1080? 1080 : (window.innerWidth < 900 && window.innerHeight < 400) ? pageWidthStyle : pageWidth - 50
+        width: pageWidth >= 1080 && pageWidth <= 1920 ? 1080 : (window.innerWidth < 900 && window.innerHeight < 400) ? pageWidthStyle : pageWidth - 50
     }
 
+    console.log(pageWidth, pageHight)
+
     return (
-        <div className="flip">
+        <div className="flip"
+            style={stylesFilpContainer}
+        >
             {!mobileModeCondition 
                 && 
             <div className="heading">
                 <h1>Product Catalogue</h1>
-                <p>height : {window.innerHeight}</p>
+                {/* <p>height : {window.innerHeight}</p>
                 <p>width : {window.innerWidth}</p>
                 <p>C height : {document.body.clientHeight}</p>
-                <p>C width : {document.body.clientWidth}</p>
+                <p>C width : {document.body.clientWidth}</p> */}
             </div>
+            }
+            {
+                mobileScreen 
+                &&
+                <p className="heading rotate-message">Rotate the screen for better view</p>
             }
             <main   className="flip-container"
                     style={stylesFilpContainer}
