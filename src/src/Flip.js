@@ -73,6 +73,10 @@ export default function FlipDemo(props) {
                 && 
             <div className="heading">
                 <h1>Product Catalogue</h1>
+                <p>height : {window.innerHeight}</p>
+                <p>width : {window.innerWidth}</p>
+                <p>C height : {document.body.clientHeight}</p>
+                <p>C width : {document.body.clientWidth}</p>
             </div>
             }
             <main   className="flip-container"
