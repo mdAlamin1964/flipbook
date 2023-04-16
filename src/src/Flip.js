@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useRef } from "react";
 import HTMLFlipBook from "react-pageflip"
 import { nanoid } from "nanoid";
@@ -20,38 +20,98 @@ export default function FlipDemo(props) {
     // next prev function
     const book = useRef()
 
+
+    // Rotate screen
+    let pageWidth =  0;
+    if(window.innerWidth > 1080 && window.innerHeight > 900) {
+        pageWidth = 1080;
+    } else if(window.innerWidth > 1080 && window.innerHeight < 900) {
+        pageWidth = 950;
+    } else {
+       pageWidth = Math.floor(window.innerWidth * 0.9)    
+    }
     
-    const pageWidth = 1080;
+    let pageHight = Math.floor(pageWidth * 0.71);
+    let mobileModeCondition = false;
+    let buttonclass = ""
+    let pageWidthStyle =  0;
+    if(window.innerWidth < 900 && window.innerHeight < 400) {
+        pageHight = window.innerHeight;
+        pageWidth = Math.floor(pageHight * 1.41)
+        pageWidthStyle = pageWidth
+        mobileModeCondition = true;
+        buttonclass = "flip-btn-mobile"
+    }
+
+
+
+    // detacting screen orientation
+    var previousOrientation = window.orientation;
+    var checkOrientation = function(){
+        if(window.orientation !== previousOrientation){
+            previousOrientation = window.orientation;
+            // orientation changed, do your magic here
+            window.location.reload();
+            
+        }
+    };
+
+    window.addEventListener("resize", checkOrientation, false);
+    window.addEventListener("orientationchange", checkOrientation, false);
+
+
+
+
+    // style 
+    let stylesFilpContainer = {
+        width: pageWidth >= 1080? 1080 : (window.innerWidth < 900 && window.innerHeight < 400) ? pageWidthStyle : pageWidth - 50
+    }
 
     return (
-        <main className="flip-container">
-            <HTMLFlipBook 
-                width={pageWidth} 
-                height={764} 
-                drawShadow={true}
-                showCover={false}
-                size={"stretch"}
-                maxShadowOpacity={1}
-                ref={book}
-                mobileScrollSupport={true}
-                minWidth={window.innerWidth <= pageWidth? window.innerWidth -100 : pageWidth}
-                >
-                {pagesToDisplay}
-            </HTMLFlipBook>
-            <div className="flip-btn-area">
-                <button
-                    onClick={() => 
-                        book.current.pageFlip().flipPrev()
-                    }>
-                    Previous
-                </button>
-                <button
-                    onClick={() => 
-                        book.current.pageFlip().flipNext()
-                    }>
-                    Next
-                </button>
+        <div className="flip">
+            {!mobileModeCondition 
+                && 
+            <div className="heading">
+                <h1>Product Catalogue</h1>
             </div>
-        </main>
+            }
+            <main   className="flip-container"
+                    style={stylesFilpContainer}
+            >
+                <HTMLFlipBook 
+                    className="flip-images"
+                    width={pageWidth} 
+                    height={pageHight} 
+                    drawShadow={true}
+                    showCover={false}
+                    size={"stretch"}
+                    maxShadowOpacity={1}
+                    ref={book}
+                    mobileScrollSupport={true}
+                    usePortrait={true}
+                    clickEventForward={false}
+                    swipeDistance={20}
+                    minWidth={pageWidth - 100}
+                    >
+                    {pagesToDisplay}
+                </HTMLFlipBook>
+                <div className={`flip-btn-area ${buttonclass}`}>
+                    <button  
+                        className="prev"
+                        onClick={() => 
+                            book.current.pageFlip().flipPrev()
+                        }>
+                        Previous
+                    </button>
+                    <button 
+                        className="next"
+                        onClick={() => 
+                            book.current.pageFlip().flipNext()
+                        }>
+                        Next
+                    </button>
+                </div>
+            </main>
+        </div>
     );
 }

@@ -14,9 +14,9 @@ body{
 
 
 .flip-container {
-    width: 1080px;
+   // width: 1080px;
     margin: auto;
-
+    @include site-trasition;
         .flip-page{
         img{
             width: 100%;  
@@ -61,18 +61,18 @@ body{
 // button area 
 .flip-btn-area {
     text-align: center;
-    margin: 30px 0;
+    margin: 20px 0;
 
     button {
-        width: 120px;
-        padding: 10px;
         border-radius: 4px;
         border: none;
-        margin: 0 5px;
-        font-size: 18px;
         font-weight: 400;
         font-family: 'roboto';
         text-transform: uppercase;
+        font-size: 14px;
+        width: 80px;
+        padding: 5px;
+        margin: 0 10px;
         @include site-trasition;
         @include add-page-shadow;
         color: $pimary-green;
@@ -100,4 +100,24 @@ body{
     .flip-container {
         width: 95%;
     }
+}
+
+
+//Rotate screen
+.flip-btn-mobile {
+    z-index: 2;
+    .prev {
+        position: absolute;
+        bottom: 10px;
+        left: 30px;
+    }
+    .next {
+        position: absolute;
+        bottom: 10px;
+        right: 30px;
+    }
+}
+
+.d-none {
+    display: none;
 }
