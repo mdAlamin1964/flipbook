@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useRef } from "react";
 import HTMLFlipBook from "react-pageflip"
 import { nanoid } from "nanoid";
@@ -42,12 +42,11 @@ export default function FlipDemo() {
     let buttonclass = ""
     let pageWidthStyle =  0;
 
-    // Trigaring massage
+    // Trigering message
     if(window.innerHeight > window.innerWidth) {
         mobileScreen =  true
     }
 
-        // window.innerWidth < 900 && window.innerHeight < 400
     if(window.innerWidth < 1080 && window.innerHeight < 400) {
         pageHight = window.innerHeight;
         pageWidth = Math.floor(pageHight * 1.41)
@@ -56,14 +55,11 @@ export default function FlipDemo() {
         buttonclass = "flip-btn-mobile"
     }
 
-    
-
     // detacting screen orientation
     var previousOrientation = window.orientation;
     var checkOrientation = function(){
         if(window.orientation !== previousOrientation){
             previousOrientation = window.orientation;
-            // orientation changed, do your magic here
             window.location.reload();
             
         }
@@ -75,7 +71,7 @@ export default function FlipDemo() {
 
     // style 
     let stylesFilpContainer = {
-        width: pageWidth >= 1080 && pageWidth <= 1920 ? 1080 : (window.innerWidth < 900 && window.innerHeight < 400) ? pageWidthStyle : pageWidth - 50
+        width: pageWidth >= 1080 && pageWidth <= 1920 ? 1080 : (window.innerWidth < 1080 && window.innerHeight < 400) ? pageWidthStyle : pageWidth - 50
     }
 
     console.log(pageWidth, pageHight)
