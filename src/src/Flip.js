@@ -68,16 +68,18 @@ export default function FlipDemo() {
     window.addEventListener("resize", checkOrientation, false);
     window.addEventListener("orientationchange", checkOrientation, false);
 
-    
+
     // resizing window on reaload
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
     const [windowHeight, setWindowHeight] = useState(window.innerHeight)
     const setWindowDimensions = () => {
     setWindowWidth(window.innerWidth)
     setWindowHeight(window.innerHeight)
+    window.location.reload();
     }
     useEffect(() => {
         window.addEventListener('resize', setWindowDimensions);
+        console.log("hi")
     return () => {
         window.removeEventListener('resize', setWindowDimensions)
     }
