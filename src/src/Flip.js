@@ -75,13 +75,12 @@ export default function FlipDemo() {
     const setWindowDimensions = () => {
     setWindowWidth(window.innerWidth)
     setWindowHeight(window.innerHeight)
-    window.location.reload();
+    setTimeout(()=> {window.location.reload()}, 10);
     }
     useEffect(() => {
-        window.addEventListener('resize', setWindowDimensions);
-        console.log("hi")
+        window.addEventListener('resize', setWindowDimensions, false);
     return () => {
-        window.removeEventListener('resize', setWindowDimensions)
+        window.removeEventListener('resize', setWindowDimensions, false)
     }
     }, [])
 
@@ -90,8 +89,6 @@ export default function FlipDemo() {
     let stylesFilpContainer = {
         width: pageWidth >= 1080 && pageWidth <= 1920 ? 1080 : (window.innerWidth < 1080 && window.innerHeight < 400) ? pageWidthStyle : pageWidth - 50
     }
-
-    console.log(pageWidth, pageHight)
 
     return (
         <div className="flip"
