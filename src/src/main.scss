@@ -141,13 +141,13 @@ body{
 
 .botom-bar {
     background: $add-bacground;
-    z-index: 2;
+    z-index: 999999999999;
     position: absolute;
 }
 
 .top-bar {
     background: $add-bacground;
-    z-index: 2;
+    z-index: 999999999999;
     position: absolute;
     top: 0;
     

@@ -13,6 +13,9 @@ export default function Flip2() {
         bottomHeight = 25;
     }
 
+    if(winHeight > winWidth) {
+        bottomHeight = 20;
+    }
 
     const styleTop = {
         width: "100%",
