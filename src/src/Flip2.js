@@ -10,12 +10,8 @@ export default function Flip2() {
     let winHeight = window.innerHeight
     if(winWidth < 1080 && winHeight < 400) {
         bottomPosition = 0;
-        bottomHeight = 25
+        bottomHeight = 25;
     }
-
-
-
-
 
 
     const styleTop = {
