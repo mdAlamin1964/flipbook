@@ -2,7 +2,21 @@ import React from "react";
 import { useState, useEffect } from "react";
 export default function Flip2() {
     // Hiding ads area
-    let bottomHight = 15
+    let bottomHeight = 15
+    let bottomPosition = 46
+
+    // bottombar for phone horizontal view
+    let winWidth =  window.innerWidth
+    let winHeight = window.innerHeight
+    if(winWidth < 1080 && winHeight < 400) {
+        bottomPosition = 0;
+    }
+
+
+
+
+
+
     const styleTop = {
         width: "100%",
         height: "50px"
@@ -10,8 +24,8 @@ export default function Flip2() {
 
     const styleBottom = {
         width: "100%",
-        bottom: "46px",
-        height: `${bottomHight}%`
+        bottom: `${bottomPosition}px`,
+        height: `${bottomHeight}%`
 
     }
 
