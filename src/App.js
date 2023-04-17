@@ -1,12 +1,12 @@
 import React from "react"
 import "./src/main.css"
-import Flip from './src/Flip'
+import Flip2 from './src/Flip2'
 
 
 export default function App(props) {
     return (
         <div className="container">
-            <Flip />
+            <Flip2 />
         </div>
     )
 }
