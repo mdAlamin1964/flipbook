@@ -19,7 +19,7 @@ export default function Flip2() {
 
     const styleTop = {
         width: "100%",
-        height: "50px"
+        height: "46px"
     }
 
     const styleBottom = {

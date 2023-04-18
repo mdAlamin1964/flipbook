@@ -118,13 +118,13 @@ body {
 
 .botom-bar {
   background: rgb(50, 50, 50);
-  z-index: 2;
+  z-index: 999999999999;
   position: absolute;
 }
 
 .top-bar {
   background: rgb(50, 50, 50);
-  z-index: 2;
+  z-index: 999999999999;
   position: absolute;
   top: 0;
 }/*# sourceMappingURL=main.css.map */
