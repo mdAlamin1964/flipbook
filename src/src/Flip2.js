@@ -8,9 +8,9 @@ export default function Flip2() {
     // bottombar for phone horizontal view
     let winWidth =  window.innerWidth
     let winHeight = window.innerHeight
-    if(winWidth < 1080 && winHeight < 400) {
+    if(winWidth < 1080 && winHeight < 480) {
         bottomPosition = 0;
-        bottomHeight = 25;
+        bottomHeight = 27;
     }
 
     if(winHeight > winWidth) {
