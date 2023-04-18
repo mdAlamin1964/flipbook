@@ -3,18 +3,17 @@ import { useState, useEffect } from "react";
 export default function Flip2() {
     // Hiding ads area
     let bottomHeight = 15
-    let bottomPosition = 0
+    let bottomPosition = -10
 
     // bottombar for phone horizontal view
     let winWidth =  window.innerWidth
     let winHeight = window.innerHeight
     if((winWidth < 1080 &&  winHeight < 480) || (winWidth < 416 && winHeight > winWidth) || (winHeight < 416 && winHeight < winWidth)) {
-        bottomPosition = 0;
         bottomHeight = 32;
     }
 
     if(winHeight > winWidth) {
-        bottomHeight = 25;
+        bottomHeight = 35;
     }
 
     const styleTop = {
@@ -24,7 +23,7 @@ export default function Flip2() {
 
     const styleBottom = {
         width: "100%",
-        bottom: `${bottomPosition}px`,
+        bottom: `${bottomPosition}%`,
         height: `${bottomHeight}%`
 
     }
@@ -36,7 +35,7 @@ export default function Flip2() {
     const setWindowDimensions = () => {
     setWindowWidth(window.innerWidth)
     setWindowHeight(window.innerHeight)
-    setTimeout(()=> {window.location.reload()}, 10);
+    //setTimeout(()=> {window.location.reload()}, 10);
     }
     useEffect(() => {
         window.addEventListener('resize', setWindowDimensions, false);
